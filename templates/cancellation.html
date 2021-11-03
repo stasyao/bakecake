@@ -1,0 +1,15 @@
+{% extends '_super_base.html' %}
+
+{% block content %}
+<div class='row'>
+  <div class='col-sm-6 m-auto'>
+    <h2>Отменить заказ</h1>
+      <form method="POST" class="form-control">
+        {% csrf_token %}
+        {{ form.comment }}
+        <br>
+      <button type="submit" class="btn btn-outline-danger">Отменить</button>
+      </form>
+  </div>
+</div>
+{% endblock %}

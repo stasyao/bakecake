@@ -1,0 +1,22 @@
+<div class="row mb-2">
+    <div class="col-sm-9 me-auto ms-auto">
+      <div class="row">
+        <div class="col-6 col-sm-5 ms-auto">
+          <span class="fs-6">
+            {{ label }}
+          </span>
+          {% include '_required_field.html' with field=field %}
+        </div>
+        <div class="col-6 col-sm-4 me-auto">
+          <div class="input-group input-group-sm mb-2 border border-secondary rounded">
+            {{ field }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-0 mb-0">
+    <div class="col-sm-6 ms-auto me-auto">
+        {% include '_errors.html' with field=field %}
+    </div>
+  </div>

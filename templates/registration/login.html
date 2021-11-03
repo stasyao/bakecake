@@ -1,0 +1,51 @@
+{% extends '_super_base.html' %}
+
+{% block content %}
+
+  <form method="POST" class="form-control mt-5">
+  {% csrf_token %}
+  <div class="row mb-2">
+    <div class="col-sm-6 me-auto ms-auto">
+      <div class="row">
+        <div class="col-6 col-sm-4 ms-end">
+          <p class="fs-6 m-0 text-end">Никнейм на сайте</p>
+        </div>
+        <div class="col-6 col-sm-4 me-auto p-0">
+          <input type="text" name="username" class="form-control" id="{{ form.username.auto_id }}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 me-auto ms-auto">
+      <div class="row">
+        <div class="col-6 col-sm-4 ms-end">
+          <p class="fs-6 m-0 text-end">Пароль</p>
+        </div>
+        <div class="col-6 col-sm-4 me-auto p-0">
+          <input type="password" name="password" class="form-control" id="{{ form.password.auto_id }}">
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-4 me-auto ms-auto ps-4">
+        {% for error in form.non_field_errors %}
+          <p class='text-danger small'>{{ error }}</p>
+        {% endfor %}
+      </div>
+    <div class="row mt-3">
+      <div class="col-sm-6 me-auto ms-auto">
+        <div class="row">
+          <div class="col-4 col-sm-3 ms-end">
+          </div>
+          <div class="col-6 col-sm-4 p-0">
+            <button class="btn btn-outline-success" type="submit" style="width: 100%;">
+              Войти
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+</form>
+
+{% endblock content %}

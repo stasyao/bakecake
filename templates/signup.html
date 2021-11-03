@@ -1,0 +1,86 @@
+{% extends '_super_base.html' %}
+
+{% block content %}
+
+  <form method="POST" class="form-control mt-5">
+  {% csrf_token %}
+
+  <div class="row mb-3">
+    <div class="col-sm-9 me-auto ms-auto">
+        <h2 class="text-center">Регистрация</h2>
+    </div>
+  </div>
+  {% include '_signup_field.html' with field=form.username label='Никнейм для сайта' %}
+  <!-- Имя -->
+  {% include '_signup_field.html' with field=form.first_name label='Имя' %}
+  <!-- Фамилия -->
+  {% include '_signup_field.html' with field=form.last_name label='Фамилия' %}
+  <!-- Контактный телефон -->
+  {% include '_signup_field.html' with field=form.phonenumber label='Телефон' %}
+  <!-- Адрес -->
+  {% include '_signup_field.html' with field=form.address label='Ваш адрес' %}
+  <!-- Ссылка на любую соцсеть (по желанию) -->
+  {% include '_signup_field.html' with field=form.social_network label='Ссылка на соцсеть' %}
+  <!-- Согласие на обработку персданных -->
+  <div class="row mb-3">
+    <div class="col-sm-7 me-auto ms-auto ps-4">
+        <input type="checkbox" name="agreement" class="form-check-input border border-secondary" id="{{ form.agreement.auto_id }}">
+        <span class="fs-6">
+          <a href="https://netrack.ru/storage/2019/12/Prilozhenie-N2.-Forma-soglasiya-na-obrabotku-personalnykh-dannykh.pdf" target="_blank">Согласие</a> на обработку персональных данных
+        </span>
+        <span class="text-danger">*</span>
+        {% include '_errors.html' with field=form.agreement %}
+    </div>
+  </div>
+  <!-- Пароль -->
+  <div class="row mb-2">
+    <div class="col-sm-9 me-auto ms-auto">
+      <div class="row">
+        <div class="col-6 col-sm-5 ms-auto">
+          <span class="fs-6">Придумайте пароль</span>
+        </div>
+        <div class="col-6 col-sm-4 me-auto">
+          <div class="input-group input-group-sm mb-2 border border-secondary rounded">
+            <input type="password" name="password1" class="form-control" id="{{ form.password1.auto_id }}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-1">
+      <div class="col-sm-6 ms-auto me-auto">
+        <p class='small text-muted'>
+          {{ form.password1.help_text|striptags }}
+        </p>
+        {% include '_errors.html' with field=form.password1 %}
+      </div>
+    </div>
+  </div>
+  <!-- Продублировать пароль -->
+  <div class="row">
+    <div class="col-sm-9 me-auto ms-auto">
+      <div class="row">
+        <div class="col-6 col-sm-5 ms-auto">
+          <span class="fs-6">Повторите пароль</span>
+        </div>
+        <div class="col-6 col-sm-4 me-auto">
+          <div class="input-group input-group-sm mb-2 border border-secondary rounded">
+            <input type="password" name="password2" class="form-control" id="{{ form.password2.auto_id }}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-1">
+      <div class="col-sm-6 ms-auto me-auto">
+        {% include '_errors.html' with field=form.password2 %}
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-4 me-auto ms-auto ps-4">
+        <button class="btn btn-outline-success ms-2" type="submit" style="width: 100%;">
+          Вперёд!
+        </button>
+      </div>
+  </div>
+</form>
+
+{% endblock content %}

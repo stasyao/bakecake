@@ -1,0 +1,39 @@
+{% extends "_super_base.html" %}
+
+{% block content %}
+<div class="row mb-0 mt-3">
+  <div class="col-sm">
+    <h2 class="text-center pb-3 fs-3">
+      Давайте соберем Ваш торт
+    </h2>
+  </div>
+</div>
+<form action="{% url 'order_details' %}" method='POST' class="ms-3 me-3">
+  {% csrf_token %}
+  {% include '_cake_params.html' with part=form.level.label options=form.level %}
+  {% include '_cake_params.html' with part=form.form.label options=form.form %}
+  {% include '_cake_params.html' with part=form.topping.label options=form.topping %}
+  {% include '_cake_params.html' with part=form.berry.label options=form.berry %}
+  {% include '_cake_params.html' with part=form.decor.label options=form.decor %}
+  <div class="row mb-3 fs-5">
+    <div class="col-sm-6 mt-2 me-auto ms-auto">
+      <h4 class="fs-4 mb-2">
+        {{ form.caption_on_cake.label }}
+      </h4>
+      <div class="input-group input-group-sm mt-2 mb-3" style="max-width: 31ch;">
+        {{ form.caption_on_cake }}
+      </div>
+      <p class="small fs-6">
+        {{ form.caption_on_cake.help_text }}
+      </p>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-6 m-auto">
+      <div class="input-group input-group-sm d-flex justify-content-center">
+        <input type="submit" value="Собрать торт!" class="btn btn-primary fs-3">
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock content %}

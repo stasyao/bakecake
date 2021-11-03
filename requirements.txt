@@ -1,0 +1,6 @@
+Django==3.2.8
+environs[django]==9.3.2
+flake8==4.0.1
+ipython==7.28.0
+django-phonenumber-field==5.2.0
+phonenumbers==8.12.35

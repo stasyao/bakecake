@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}
+
+  {% if subtitle %}
+    {{ subtitle }} | 
+  {% endif %}
+    Админка | BakeCake
+
+{% endblock %}
+
+{% block branding %}
+
+  <div>
+  <h1 id="branding">
+    <a href="{% url 'home' %}">
+      BakeCake
+    </a>
+  </h3>
+  </div>
+  {% if request.resolver_match.view_name != 'admin:login' %}
+  <div style="margin-top: 50px;">
+    <form action="{% url 'admin:stat_in_csv' %}" method="POST">
+        {% csrf_token %}
+          <button type="submit"
+           style='cursor: pointer; background: linear-gradient(#F3AE0F, #E38916) #E38916; color: white; padding: .5em 2em; outline: none; border-width: 2px 0; border-style: solid none; border-color: #FDBE33 #000 #D77206; border-radius: 6px; transition: 0.2s;
+          '>
+          Статистика в CSV
+        </button>
+    </form>
+  </div>
+  {% endif %}
+{% endblock %}
+
+{% block nav-global %}
+{% endblock %}

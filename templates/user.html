@@ -1,0 +1,30 @@
+{% extends '_super_base.html' %}
+
+{% block content %}
+  {% for order in user.orders.all %}
+  <div class="row m-0">
+    <div class="col-sm-6 me-auto ms-auto border border-5 pt-2">
+    <p class="mb-3"><span class="ps-0 mark">Номер заказа</span> {{ order.id }}</p>
+    <p class="mb-0"><span class="ps-0 mark">Описание торта</span> {{ order.cake }}<p>
+    <p class="mb-3"><span class="ps-0 mark">Цена</span> {{ order.total_price }}&#8381;</p>
+    <p class="mb-1"><span class="ps-0 mark">Статус</span> {{ order.get_status_display }}</p>
+    {% if order.get_status_display == "Заявка обрабатывается" %}
+    <a href="{% url 'cancel' order.id %}" class="btn btn-outline-danger mb-2">
+      Отменить
+    </a>
+    {% else %}
+    {% endif %}
+    <br>
+  </div>
+</div>
+{% empty %}
+  <div class="row m-0">
+    <div class="col-sm-6 me-auto ms-auto border border-5 pt-2">
+      <p class="mb-3 fs-3">
+        У Вас пока не было заказов
+      </p>
+    </div>
+</div>
+  {% endfor %}
+
+{% endblock %}
