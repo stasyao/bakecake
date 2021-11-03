@@ -1,4 +1,4 @@
-# Сервис BakeCake
+# MVP сервиса BakeCake
 
 Рабочая версия сайта: https://truebakecake.pythonanywhere.com/
 
@@ -21,7 +21,14 @@
 
 ![image](https://user-images.githubusercontent.com/60841011/140020528-c6d2378c-ef43-4e19-a14b-0619fffe9bdf.png) ![image](https://user-images.githubusercontent.com/60841011/140020650-50cf6b60-a88c-419a-8c4e-ab12b9dfca4d.png)
 
+___
+
 ![image](https://user-images.githubusercontent.com/60841011/140022385-0f6d67a3-55e8-491d-9fc7-1d0a3bcc9e73.png) ![image](https://user-images.githubusercontent.com/60841011/140022546-e9a451c4-682c-4b09-b803-cc8f3a6738de.png)
+
+## Стек 
+- `Django` &mdash; бэкенд и рендеринг шаблонов страниц
+- `Bootstrap5` &mdash; вёрстка  
+- `Vanilla JS` &mdash; динамическое обновление на клиентской стороне цены заказа в зависимости от промокода и срочности заказа. Для запросов к серверу использован `Fetch API`. 
 
 ## Запуск
 
@@ -40,6 +47,7 @@
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
 - `DATABASE` — однострочный адрес к базе данных, например: `sqlite:///db.sqlite3`. Больше информации в [документации](https://github.com/jacobian/dj-database-url)
 
-## Цели проекта
+## Цели и исполнители проекта
 
-Код написан в учебных целях — это групповой проект по Python и веб-разработке на сайте [Devman](https://dvmn.org).
+Код написан в учебных целях — это парный проект по Python и веб-разработке [Devman](https://dvmn.org).
+История коммитов [здесь](https://github.com/alena-yudzina/bakecake/commits/main)  
