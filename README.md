@@ -33,8 +33,10 @@ ___
 ## Запуск
 
 - Скачайте код
+- Запустите виртуальное окружение
 - Установите зависимости командой `pip install -r requirements.txt`
 - Создайте файл базы данных и сразу примените все миграции командой `python3 manage.py migrate`
+- Загрузите фикстуру `python3 manage.py loaddata db_example.json`
 - Запустите сервер командой `python3 manage.py runserver`
 
 ## Переменные окружения
