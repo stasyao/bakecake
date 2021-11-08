@@ -114,7 +114,7 @@ window.addEventListener(
         // запрашиваем с сервера данные об актуальном промокоде
         await getPromoCodeStatus();
         const [actualCode, _] = promoCodeStatus;
-        // блокируем поле с промиком, если актуальных промиков нет
+        // удаляем поле с промиком, если актуальных промиков нет
         if (!actualCode) {
             userPromoCodeBlock.remove();
         }
