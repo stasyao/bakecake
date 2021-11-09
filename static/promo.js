@@ -1,4 +1,7 @@
-// Скрипт подгрузился, взяли текущую цену из конструктора торта
+/*
+Скрипт для динамического изменения цены заказа в зависимости от вводимой пользователем даты заказа и промокода
+*/
+
 const priceFromConstructor = Number.parseInt(
     document.querySelector('#total_price').textContent
 );
